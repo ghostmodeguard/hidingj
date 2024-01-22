@@ -13,14 +13,17 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Crypto {
+// Instance that allow to read computed hiding risk message
+public class AESReader {
 
+    // Key used to decrypt message
     private final SecretKeySpec keySpec;
 
+    // Mapper that unmarshall json content of a decrypted message
     private final ObjectMapper objectMapper;
 
-    public Crypto(String key) {
-        // Ensure that the key is 16, 24, or 32 bytes long (128, 192, or 256 bits)
+    // Constructor that build an AES reader from a key string
+    public AESReader(String key) {
         byte[] keyBytes = key.getBytes();
         keySpec = new SecretKeySpec(keyBytes, "AES");
         this.objectMapper = new ObjectMapper();

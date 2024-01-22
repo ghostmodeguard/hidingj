@@ -10,7 +10,7 @@ public class CryptoTest {
         try {
             // Prepare
             String stringKey = "E6B47686D7C99A22382EF75E09FAA354";
-            Crypto crypto = new Crypto(stringKey);
+            AESReader crypto = new AESReader(stringKey);
             ComputedHidingRisk expectedRisk = getComputedHidingRisk();
             String encryptedMsg = "mPR1YoJ1/TtSN9Mvq0az5yigrZtxPr8WSgho7Pj5bQv+aA7zyAaAScP/BdXZ6H4EbVr43mmYd74tIPedT9qR87RaYl1wSUnby3cdDtc=";
 
