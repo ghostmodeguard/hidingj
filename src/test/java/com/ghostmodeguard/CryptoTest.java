@@ -19,7 +19,7 @@ public class CryptoTest {
 
             // Verify
             assertThat(actualRisk).usingRecursiveComparison().isEqualTo(expectedRisk);
-        } catch (Exception e) {
+        } catch (GhostModeGuardException e) {
             fail("Test failed: " + e.getMessage());
         }
     }
