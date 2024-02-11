@@ -7,6 +7,9 @@ public class ComputedHidingRisk {
     @JsonProperty("t")
     private String token;
 
+    @JsonProperty("v")
+    private Verdict verdict;
+
     @JsonProperty("d")
     private int denyScore;
 
@@ -31,17 +34,19 @@ public class ComputedHidingRisk {
     @JsonProperty("ro")
     private int rootScore;
 
-    // Constructors, getters, and setters (if needed) can be added here
+    @JsonProperty("bs")
+    private int botScore;
 
-    // Example constructor without arguments
+    // Constructor without arguments
     public ComputedHidingRisk() {
     }
 
-    // Example constructor with arguments
-    public ComputedHidingRisk(String token, int denyScore, int virtualMachineScore, int antiTrackerScore,
+    // Constructor with arguments
+    public ComputedHidingRisk(String token, Verdict verdict, int denyScore, int virtualMachineScore, int antiTrackerScore,
                               int hideDeviceScore, int privateNavigationScore, int hideRealIPScore,
-                              int badReputationIPScore, int rootScore) {
+                              int badReputationIPScore, int rootScore, int botScore) {
         this.token = token;
+        this.verdict = verdict;
         this.denyScore = denyScore;
         this.virtualMachineScore = virtualMachineScore;
         this.antiTrackerScore = antiTrackerScore;
@@ -50,6 +55,7 @@ public class ComputedHidingRisk {
         this.hideRealIPScore = hideRealIPScore;
         this.badReputationIPScore = badReputationIPScore;
         this.rootScore = rootScore;
+        this.botScore = botScore;
     }
 
     public String getToken() {
@@ -58,6 +64,14 @@ public class ComputedHidingRisk {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public Verdict getVerdict() {
+        return verdict;
+    }
+
+    public void setVerdict(Verdict verdict) {
+        this.verdict = verdict;
     }
 
     public int getDenyScore() {
@@ -124,10 +138,19 @@ public class ComputedHidingRisk {
         this.rootScore = rootScore;
     }
 
+    public int getBotScore() {
+        return botScore;
+    }
+
+    public void setBotScore(int botScore) {
+        this.botScore = botScore;
+    }
+
     @Override
     public String toString() {
         return "ComputedHidingRisk{" +
                 "token='" + token + '\'' +
+                ", verdict=" + verdict +
                 ", denyScore=" + denyScore +
                 ", virtualMachineScore=" + virtualMachineScore +
                 ", antiTrackerScore=" + antiTrackerScore +
@@ -136,6 +159,7 @@ public class ComputedHidingRisk {
                 ", hideRealIPScore=" + hideRealIPScore +
                 ", badReputationIPScore=" + badReputationIPScore +
                 ", rootScore=" + rootScore +
+                ", botScore=" + botScore +
                 '}';
     }
 }
